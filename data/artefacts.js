@@ -232,7 +232,7 @@ var ARTEFACTS = [
     conspiracy: "The Shroud of Turin", url: "https://en.wikipedia.org/wiki/Shroud_of_Turin",
     summary: "A cloth bearing the faint image of a crucified man, venerated as the burial shroud of Christ. 1988 radiocarbon dating said medieval forgery; believers said the lab tested a repair patch. The argument is the relic now." },
   { name: "Illuminati: NWO Booster Pack", key: "illuminati-nwo-booster-pack", rarity: "Common", type: "Trigger", bonus: ["Piece"], status: "KEEP", implemented: true,
-    effect: "Every 1000 Score gained: open a random Piece Box.",
+    effect: "Every 10000 Score gained: open a random Piece Box.",
     conspiracy: "The Illuminati card game", url: "https://en.wikipedia.org/wiki/Illuminati:_New_World_Order",
     summary: "A 1995 satirical card game whose 'Terrorist Nuke' card shows the twin towers exploding — printed six years early. Add the real 1990 Secret Service raid on its publisher and the deck reads itself." },
   { name: "John Titor's Crypto Wallet", key: "john-titor-s-crypto-wallet", rarity: "Common", type: "Trigger", bonus: ["Time"], status: "KEEP", implemented: true,
