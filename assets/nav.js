@@ -23,7 +23,7 @@
   var LINKS = [
     ['codex',        'codex.html',            'Codex'],
     ['graph',        'graph.html',            'Graph'],
-    ['promotion',    'promotion.html',        'Promotions'],
+    ['merges',       'merges.html',           'Merges'],
     ['fusion',       'fusion.html',           'Fusions'],
     ['inversion',    'inversion.html',        'Inversions'],
     ['artefacts',    'artefacts.html',        'Artefacts'],

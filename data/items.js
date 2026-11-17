@@ -23,7 +23,7 @@
      fires      — hooks this effect makes fire. Every Item carries
                   on_item_consume (game.gd's _consume_item is the single choke
                   point every Item leaves through) plus whatever its own effect
-                  reaches: Air Strike's _destroy, Promote's on_rank_up.
+                  reaches: Air Strike's _destroy, Merge Up's on_rank_up.
      suppresses — hooks this effect DENIES to everything listening on them.
                   Shield repels the capture attempt before the capture branch
                   is reached, so the 22 on_capture Artefacts see nothing.
@@ -47,9 +47,9 @@ var ITEMS = [
   { key: "demote", name: "Demote", tier: "Tactical", target: "tile",
     fires: ["on_item_consume", "on_demote", "on_piece_demoted"],
     description: "Turn any piece, ally or enemy, into the base piece of its chain." },
-  { key: "promote", name: "Promote", tier: "Tactical", target: "tile",
+  { key: "promote", name: "Merge Up", tier: "Tactical", target: "tile",
     fires: ["on_item_consume", "on_rank_up"],
-    description: "Promote one of your pieces to its next tier." },
+    description: "Merge one of your pieces into its next stage on the spot, no twin needed." },
   { key: "invert", name: "Inversion", tier: "Tactical", target: "tile",
     fires: ["on_item_consume"],
     description: "Turn any piece into its paired inverse (Bishop ↔ Rook, Pawn ↔ Void Pawn, …), either way." },

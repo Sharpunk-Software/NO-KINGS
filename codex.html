@@ -10,7 +10,7 @@
   <script src="assets/theme-init.js"></script>
   <script src="assets/board.js"></script>
   <script src="data/pieces-codex.js"></script>
-  <script src="data/promotions.js"></script>
+  <script src="data/families.js"></script>
   <script src="data/fusions.js"></script>
   <script src="data/inversions.js"></script>
   <style>
@@ -241,9 +241,9 @@
   .relation-section > *{grid-column:1 / -1}
   .relation-section-head{grid-column:1;font:700 10px/1.4 var(--mono);letter-spacing:.08em;
     text-transform:uppercase;color:var(--text-soft);margin-bottom:2px}
-  .relation-section.is-promotion{border-color:color-mix(in srgb,var(--hop-target) 55%,var(--border));
+  .relation-section.is-merge{border-color:color-mix(in srgb,var(--hop-target) 55%,var(--border));
     background:color-mix(in srgb,var(--hop-target) 8%,color-mix(in srgb,var(--surface) 48%,transparent))}
-  .relation-section.is-promotion .relation-section-head{color:var(--hop-target)}
+  .relation-section.is-merge .relation-section-head{color:var(--hop-target)}
   .relation-section.is-fuse-from{border-color:color-mix(in srgb,var(--hurdle-color) 55%,var(--border));
     background:color-mix(in srgb,var(--hurdle-color) 8%,color-mix(in srgb,var(--surface) 48%,transparent))}
   .relation-section.is-fuse-from .relation-section-head{color:var(--hurdle-color)}
@@ -292,7 +292,7 @@
   <div class="cx-controls">
     <span class="cx-count">38 pieces</span>
     <span class="cx-legend">
-      <span><span class="lg-box promo"></span>promotion only</span>
+      <span><span class="lg-box promo"></span>merge only</span>
       <span><span class="lg-box forged"></span>fusion only</span>
       <span><span class="lg-box mirror"></span>void mirror</span>
     </span>
@@ -329,14 +329,14 @@ PIECES_CODEX.forEach(p => LOOKUP[p.id] = p);
 const crop = p => renderBoard(p);   /* crop is done with a CSS scale so it can animate open */
 
 /* relationship maps, all derived from the shared data files */
-const PROM = {}, DEM = {};
-for (const {ids:[b,m,e]} of PROMOTION_FAMILIES){ PROM[b]=m; PROM[m]=e; DEM[m]=b; DEM[e]=m; }
+const NEXT = {}, DEM = {};
+for (const {ids:[b,m,e]} of MERGE_FAMILIES){ NEXT[b]=m; NEXT[m]=e; DEM[m]=b; DEM[e]=m; }
 const INV = {};
 for (const {lhs,rhs} of INVERSION_PAIRS){ if(LOOKUP[lhs]&&LOOKUP[rhs]){ INV[lhs]=rhs; INV[rhs]=lhs; } }
 const RECIPES = {};
 for (const kind of ['synergistic','additive'])
   for (const f of FUSIONS[kind]) if (LOOKUP[f.out]) (RECIPES[f.out] = RECIPES[f.out] || []).push(f);
-const CHAIN_IDS = new Set(PROMOTION_FAMILIES.flatMap(c => c.ids));
+const CHAIN_IDS = new Set(MERGE_FAMILIES.flatMap(c => c.ids));
 const MIRROR_IDS = new Set(Object.keys(INV).filter(id => !CHAIN_IDS.has(id) && !RECIPES[id]));
 const FORGED = PIECES_CODEX.filter(p => !CHAIN_IDS.has(p.id) && !MIRROR_IDS.has(p.id));
 const FUSE_WITH_INTO = {};
@@ -348,15 +348,15 @@ for (const kind of ['additive','synergistic'])
   }
 
 /* ============ the map ============ */
-/* promotion-only: reached by promoting, and by nothing else */
-const PROMO_ONLY = new Set(PROMOTION_FAMILIES.flatMap(c => c.ids.slice(1)).filter(id => !RECIPES[id]));
+/* merge-only: reached by merging, and by nothing else */
+const MERGE_ONLY = new Set(MERGE_FAMILIES.flatMap(c => c.ids.slice(1)).filter(id => !RECIPES[id]));
 function tileHTML(p, cls){
-  const kind = cls || (PROMO_ONLY.has(p.id) ? 'promo' : '');
+  const kind = cls || (MERGE_ONLY.has(p.id) ? 'promo' : '');
   return `<button class="tile ${kind}" data-id="${p.id}">
     <span class="fp">${crop(p)}<span class="nm">${esc(p.name)}</span></span></button>`;
 }
 $('#atlas').innerHTML = `
-  ${PROMOTION_FAMILIES.flatMap(c => c.ids.flatMap(id => {
+  ${MERGE_FAMILIES.flatMap(c => c.ids.flatMap(id => {
     const mir = INV[id] && MIRROR_IDS.has(INV[id]) ? INV[id] : null;
     return [tileHTML(LOOKUP[id])].concat(mir ? [tileHTML(LOOKUP[mir],'mirror')] : []);
   })).join('')}
@@ -445,7 +445,7 @@ $('#atlas').addEventListener('mouseover', e => {
   const id = t.dataset.id;
   const pairs = [];
   if (INV[id]){ tileEl(INV[id])?.classList.add('linked'); pairs.push([INV[id], 'var(--violet-hi)']); }
-  for (const pid of [DEM[id], PROM[id]].filter(Boolean)){
+  for (const pid of [DEM[id], NEXT[id]].filter(Boolean)){
     tileEl(pid)?.classList.add('pl'); pairs.push([pid, 'var(--hop-target)']);
   }
   const r = (RECIPES[id]||[])[0];
@@ -489,10 +489,10 @@ function relationsHTML(p){
   const id = p.id, sections = [];
   if (INV[id])
     sections.push(`<div class="relation-section is-inversion"><div class="relation-section-head">Invert</div>${relRow(INV[id], 'Invert to')}</div>`);
-  if (PROM[id] || DEM[id]){
+  if (NEXT[id] || DEM[id]){
     const rows = [DEM[id] ? relRow(DEM[id], 'Demote to') : '',
-                  PROM[id] ? relRow(PROM[id], 'Promote to') : ''].filter(Boolean).join('');
-    sections.push(`<div class="relation-section is-promotion"><div class="relation-section-head">Promotion</div>${rows}</div>`);
+                  NEXT[id] ? relRow(NEXT[id], 'Merges into') : ''].filter(Boolean).join('');
+    sections.push(`<div class="relation-section is-merge"><div class="relation-section-head">Merge</div>${rows}</div>`);
   }
   const ff = RECIPES[id] || [];
   if (ff.length)
@@ -511,7 +511,7 @@ let spId = null;
 
 /* traces from the panel's relation boxes to their pieces on the map */
 const plinks = $('#plinks'), plinks2 = $('#plinks2');
-const SEC_COLOR = { 'is-inversion': 'var(--violet-hi)', 'is-promotion': 'var(--hop-target)',
+const SEC_COLOR = { 'is-inversion': 'var(--violet-hi)', 'is-merge': 'var(--hop-target)',
   'is-fuse-from': 'var(--hurdle-color)', 'is-fuse-with-into': 'var(--accent)' };
 function drawPanelLinks(){
   plinks.innerHTML = plinks2.innerHTML = '';

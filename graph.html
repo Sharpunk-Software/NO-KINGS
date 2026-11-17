@@ -121,7 +121,7 @@
       border-radius: 50%;
       border: 1px solid currentColor;
     }
-    .legend-chip.is-promotion::before    { background: color-mix(in srgb, var(--hop-target) 60%, transparent); color: var(--hop-target); }
+    .legend-chip.is-merge::before    { background: color-mix(in srgb, var(--hop-target) 60%, transparent); color: var(--hop-target); }
     .legend-chip.is-additive::before     { background: color-mix(in srgb, var(--accent) 60%, transparent); color: var(--accent); }
     .legend-chip.is-synergistic::before  { background: color-mix(in srgb, var(--hurdle-color) 60%, transparent); color: var(--hurdle-color); }
     .legend-chip.is-inversion::before    { background: color-mix(in srgb, var(--text-soft) 50%, transparent); color: var(--text-soft); }
@@ -150,7 +150,7 @@
       border-radius: 50%;
       border: 1px solid currentColor;
     }
-    .toggle-chip.is-promotion::before    { background: color-mix(in srgb, var(--hop-target) 60%, transparent); color: var(--hop-target); }
+    .toggle-chip.is-merge::before    { background: color-mix(in srgb, var(--hop-target) 60%, transparent); color: var(--hop-target); }
     .toggle-chip.is-additive::before,
     .toggle-chip.is-fuse-with::before    { background: color-mix(in srgb, var(--accent) 60%, transparent); color: var(--accent); }
     .toggle-chip.is-synergistic::before,
@@ -263,10 +263,10 @@
     .graph-grid td.is-filled { cursor: pointer; }
     /* Inset outline instead of an absolutely-positioned ::after overlay:
        outlines paint above content and never affect layout. */
-    .graph-grid td.is-promotion,
+    .graph-grid td.is-merge,
     .graph-grid td.is-additive,
     .graph-grid td.is-synergistic { outline: 1px solid transparent; outline-offset: -1px; }
-    .graph-grid td.is-promotion   { outline-color: color-mix(in srgb, var(--hop-target)   65%, transparent); }
+    .graph-grid td.is-merge   { outline-color: color-mix(in srgb, var(--hop-target)   65%, transparent); }
     .graph-grid td.is-additive    { outline-color: color-mix(in srgb, var(--accent)       65%, transparent); }
     .graph-grid td.is-synergistic { outline-color: color-mix(in srgb, var(--hurdle-color) 65%, transparent); }
     .graph-grid td.is-row-stripe,
@@ -304,7 +304,7 @@
       color: var(--text);
     }
     #graph-tooltip[hidden] { display: none; }
-    #graph-tooltip.is-promotion   { border-color: var(--hop-target); }
+    #graph-tooltip.is-merge   { border-color: var(--hop-target); }
     #graph-tooltip.is-additive    { border-color: var(--accent); }
     #graph-tooltip.is-synergistic { border-color: var(--hurdle-color); }
     .tt-inputs { display: flex; align-items: center; justify-content: center; gap: 10px; }
@@ -317,7 +317,7 @@
     .tt-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .tt-name { font-weight: 600; font-size: 14px; }
     .tt-badge { padding: 1px 8px; border-radius: var(--rad-pill); font-size: 10.5px; border: 1px solid currentColor; text-transform: uppercase; letter-spacing: 0.4px; }
-    .tt-badge.is-promotion   { color: var(--hop-target); }
+    .tt-badge.is-merge   { color: var(--hop-target); }
     .tt-badge.is-additive    { color: var(--accent); }
     .tt-badge.is-synergistic { color: var(--hurdle-color); }
     .tt-board { width: 200px; height: 200px; margin: 4px 0; }
@@ -357,7 +357,7 @@
       pointer-events: none;       /* edges sit above cards; keep clicks on nodes */
       transition: opacity 0.15s ease;
     }
-    .net-edge.is-promotion   { stroke: color-mix(in srgb, var(--hop-target) 70%, transparent); }
+    .net-edge.is-merge   { stroke: color-mix(in srgb, var(--hop-target) 70%, transparent); }
     .net-edge.is-fuse-with   { stroke: color-mix(in srgb, var(--accent) 70%, transparent); }
     .net-edge.is-fuse-into   { stroke: color-mix(in srgb, var(--hurdle-color) 70%, transparent); }
     .net-edge.is-inversion   { stroke: color-mix(in srgb, var(--text-soft) 70%, transparent); stroke-dasharray: 4 3; }
@@ -412,15 +412,15 @@
        after each label (no fixed columns, so arrows are not aligned). */
     .nt-rel { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 11.5px; margin: 3px 0; }
     .nt-rel-label { white-space: nowrap; }
-    .nt-rel-verb { font-weight: 600; text-transform: capitalize; }   /* "Promote" / "Fuses" / "Fused" / "Inverts" */
+    .nt-rel-verb { font-weight: 600; text-transform: capitalize; }   /* "Merges" / "Fuses" / "Fused" / "Inverts" */
     .nt-rel-conn { color: var(--text-soft); }                 /* "from" / "to" / "with" — grey */
     .nt-rel-arrow { color: var(--text-soft); font-weight: 600; line-height: 1; font-size: 1.15em; }   /* relation glyph, enlarged */
     .nt-rel-sep { color: var(--text-soft); padding: 0 3px; font-size: 1.15em; }  /* "→" / "+" between pieces — grey, enlarged to match */
     .nt-rel-sep.is-plus { font-size: 1.5em; line-height: 1; }  /* "+" draws smaller than the arrow glyphs, so size it up to match */
     .nt-rel-piece { white-space: nowrap; }
     /* Verb + piece names take the relation colour. */
-    .nt-rel.is-promotion .nt-rel-verb,
-    .nt-rel.is-promotion .nt-rel-piece { color: var(--hop-target); }
+    .nt-rel.is-merge .nt-rel-verb,
+    .nt-rel.is-merge .nt-rel-piece { color: var(--hop-target); }
     .nt-rel.is-fusion .nt-rel-verb,
     .nt-rel.is-fusion .nt-rel-piece { color: var(--accent); }
     /* Inversion verb + piece use the normal text colour (white in dark mode). */
@@ -489,7 +489,7 @@
   <script src="assets/theme-init.js"></script>
   <script src="assets/board.js"></script>
   <script src="data/pieces-codex.js"></script>
-  <script src="data/promotions.js"></script>
+  <script src="data/families.js"></script>
   <script src="data/fusions.js"></script>
   <script src="data/inversions.js"></script>
 </head>
@@ -511,7 +511,7 @@
       <div class="controls">
         <input type="search" id="matrix-filter" class="filter-input" placeholder="Filter rows…" aria-label="Filter rows by piece name">
         <div class="legend" aria-label="Cell type legend">
-          <span class="legend-chip is-promotion">Promotion</span>
+          <span class="legend-chip is-merge">Merge</span>
           <span class="legend-chip is-additive">Additive fusion</span>
           <span class="legend-chip is-synergistic">Synergistic fusion</span>
         </div>
@@ -525,10 +525,10 @@
 
     <!-- =========== Tab 3: Graph =========== -->
     <section role="tabpanel" id="tab-graph" aria-labelledby="tabbtn-graph" class="active">
-      <div class="controls" role="group" aria-label="Edge type filters — All is exclusive; Fusion/Promotion/Inversion can be toggled independently">
+      <div class="controls" role="group" aria-label="Edge type filters — All is exclusive; Fusion/Merge/Inversion can be toggled independently">
         <button type="button" class="toggle-chip is-all"        data-kind="all"        aria-pressed="true">All</button>
         <button type="button" class="toggle-chip is-fusion"     data-kind="fusion"     aria-pressed="false">Fusion</button>
-        <button type="button" class="toggle-chip is-promotion"  data-kind="promotion"  aria-pressed="false">Promotion</button>
+        <button type="button" class="toggle-chip is-merge"  data-kind="merge"  aria-pressed="false">Merge</button>
         <button type="button" class="toggle-chip is-inversion"  data-kind="inversion"  aria-pressed="false">Inversion</button>
         <button type="button" class="fs-btn" title="Fullscreen" aria-label="Fullscreen">⛶</button>
       </div>
@@ -540,7 +540,7 @@
   </main>
 
   <footer>
-    <p class="footer-page-line">Visual Graphs of the Promotions, Fusions &amp; Inversions relations of all the Codex pieces</p>
+    <p class="footer-page-line">Visual Graphs of the Merges, Fusions &amp; Inversions relations of all the Codex pieces</p>
     <p>Sourced from the <a href="https://en.wikipedia.org/wiki/List_of_fairy_chess_pieces" target="_blank" rel="noopener">Wikipedia piece list</a> and <a href="https://en.wikipedia.org/wiki/Fairy_chess_piece" target="_blank" rel="noopener">Betza's notation</a>. Built as a single static HTML file — no servers, no frameworks.</p>
   </footer>
 
@@ -559,10 +559,10 @@
   const PIECES = ALL_PIECES.filter(p => !RESULT_ONLY_IDS.has(p.id));     // 31 axis pieces
 
   // Self-merge → next stage in its Family (if any).
-  const promotionMap = new Map();
-  for (const Family of PROMOTION_FAMILIES) {
+  const mergeMap = new Map();
+  for (const Family of MERGE_FAMILIES) {
     for (let i = 0; i < Family.ids.length - 1; i++) {
-      promotionMap.set(Family.ids[i], Family.ids[i + 1]);
+      mergeMap.set(Family.ids[i], Family.ids[i + 1]);
     }
   }
   // Cross-merge → fusion lookup (symmetric, sorted key).
@@ -574,8 +574,8 @@
   }
   function cellFor(rowId, colId) {
     if (rowId === colId) {
-      const next = promotionMap.get(rowId);
-      return next ? { result: next, kind: 'promotion' } : null;
+      const next = mergeMap.get(rowId);
+      return next ? { result: next, kind: 'merge' } : null;
     }
     const f = fusionMap.get([rowId, colId].sort().join('|'));
     return f ? { result: f.out, kind: f.kind } : null;
@@ -830,7 +830,7 @@
     if (matrixTooltip) matrixTooltip.hidden = true;
     lastTooltipRow = lastTooltipCol = null;
   }
-  const KIND_LABEL = { promotion: 'Promotion', additive: 'Additive fusion', synergistic: 'Synergistic fusion' };
+  const KIND_LABEL = { merge: 'Merge', additive: 'Additive fusion', synergistic: 'Synergistic fusion' };
   function updateMatrixTooltip(td, ev) {
     // mousemove fires continuously while the cursor sits on one cell; only
     // rebuild the (expensive) three SVG boards when the cell actually changes.
@@ -894,7 +894,7 @@
   /* ============================================================
    *  Tab 3: Graph — custom force-directed network
    * ============================================================ */
-  const ALL_KINDS = ['promotion', 'fuse-with', 'fuse-into', 'inversion'];
+  const ALL_KINDS = ['merge', 'fuse-with', 'fuse-into', 'inversion'];
   const NET = { nodes: [], edges: [], nodeById: new Map(), kinds: new Set(ALL_KINDS) };
   const NET_SVG_NS = 'http://www.w3.org/2000/svg';
   const NODE_W = 48, NODE_H = 64; // 48x48 board + label height
@@ -910,10 +910,10 @@
     NET.nodes = ALL_PIECES_INCL_VOID.map(p => ({ id: p.id, piece: p, x: 0, y: 0, vx: 0, vy: 0, pinned: false }));
     NET.nodeById = new Map(NET.nodes.map(n => [n.id, n]));
     NET.edges = [];
-    // Promotion edges.
-    for (const Family of PROMOTION_FAMILIES) {
+    // Merge edges.
+    for (const Family of MERGE_FAMILIES) {
       for (let i = 0; i < Family.ids.length - 1; i++) {
-        NET.edges.push({ kind: 'promotion', from: Family.ids[i], to: Family.ids[i + 1], directed: true });
+        NET.edges.push({ kind: 'merge', from: Family.ids[i], to: Family.ids[i + 1], directed: true });
       }
     }
     // Fusion edges (both additive and synergistic from the codex data):
@@ -949,7 +949,7 @@
     const mainOrder = [];
     const placed = new Set();
     for (const title of CHAIN_ORDER) {
-      const Family = PROMOTION_FAMILIES.find(c => c.title === title);
+      const Family = MERGE_FAMILIES.find(c => c.title === title);
       if (!Family) continue;
       for (const id of Family.ids) {
         if (!placed.has(id) && !VOID_IDS.has(id)) { mainOrder.push(id); placed.add(id); }
@@ -988,7 +988,7 @@
     // Arrow markers per directed edge kind.
     const defs = document.createElementNS(NET_SVG_NS, 'defs');
     for (const [kind, color] of [
-      ['promotion', 'var(--hop-target)'],
+      ['merge', 'var(--hop-target)'],
       ['fuse-into', 'var(--hurdle-color)']
     ]) {
       const marker = document.createElementNS(NET_SVG_NS, 'marker');
@@ -1009,9 +1009,9 @@
     const gEdges = document.createElementNS(NET_SVG_NS, 'g');
     gEdges.setAttribute('id', 'net-edges');
     for (const e of NET.edges) {
-      // Promotion edges curve outward so they don't paint on top of any
+      // Merge edges curve outward so they don't paint on top of any
       // fuse-with / fuse-into / inversion edges that share the same endpoints.
-      const tag = e.kind === 'promotion' ? 'path' : 'line';
+      const tag = e.kind === 'merge' ? 'path' : 'line';
       const el = document.createElementNS(NET_SVG_NS, tag);
       el.setAttribute('class', 'net-edge is-' + e.kind);
       if (e.directed) el.setAttribute('marker-end', 'url(#arrow-' + e.kind + ')');
@@ -1080,7 +1080,7 @@
       const inset = NODE_W / 2 + 4;
       const x1 = a.x + ux * inset, y1 = a.y + uy * inset;
       const x2 = b.x - ux * inset, y2 = b.y - uy * inset;
-      if (e.kind === 'promotion') {
+      if (e.kind === 'merge') {
         // Quadratic-bezier control point offset perpendicular to the chord,
         // always bowing OUTWARD from the SVG center. The sign is chosen from
         // geometry (not A->B ordering) so every arrow curves the same way.
@@ -1116,7 +1116,7 @@
     document.getElementById('tab-graph').appendChild(netTooltip);
   }
   // Build the rows for the tooltip's Relations section.
-  //   - Promotion + Inversion: one row per matching edge (standard layout).
+  //   - Merge + Inversion: one row per matching edge (standard layout).
   //   - Fusion: pair the partner (fuse-with) and the output (fuse-into) in a
   //     single row when the node is an INPUT. When the node is the OUTPUT,
   //     show one row per fusion as "made from <lhs> + <rhs>".
@@ -1130,17 +1130,17 @@
     const piece = (name, role) => ({ type: 'piece', text: name, role });
     const sep   = s    => ({ type: 'sep',   text: s });
 
-    // Promotion (NET.edges): this→other = "promote to", other→this = "promote from".
-    if (NET.kinds.has('promotion')) {
+    // Merge (NET.edges): this→other = "merges into", other→this = "merged from".
+    if (NET.kinds.has('merge')) {
       for (const e of NET.edges) {
-        if (e.kind !== 'promotion') continue;
+        if (e.kind !== 'merge') continue;
         const isFrom = e.from === node.id, isTo = e.to === node.id;
         if (!isFrom && !isTo) continue;
         const other = NET.nodeById.get(isFrom ? e.to : e.from);
         if (!other) continue;
         rows.push({
-          section: 0, kind: 'promotion', verb: 'promote',
-          conn: isFrom ? 'to' : 'from',
+          section: 0, kind: 'merge', verb: isFrom ? 'merges' : 'merged',
+          conn: isFrom ? 'into' : 'from',
           arrow: isFrom ? '→' : '←',
           pieces: [ piece(other.piece.name) ],
           sortKey: other.piece.name
@@ -1349,7 +1349,7 @@
     });
     // Filter chips:
     //   "All" is exclusive — turning it on deactivates every other chip.
-    //   Fusion / Promotion / Inversion are independently toggleable. Activating
+    //   Fusion / Merge / Inversion are independently toggleable. Activating
     //   any of them deactivates "All".
     const chips = Array.from(document.querySelectorAll('#tab-graph .toggle-chip'));
     const allChip = chips.find(c => c.dataset.kind === 'all');

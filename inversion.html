@@ -12,15 +12,15 @@
   <script src="data/pieces-codex.js"></script>
   <script src="data/inversions.js"></script>
   <!-- Family order for the wall; no inversion data comes from here -->
-  <script src="data/promotions.js"></script>
+  <script src="data/families.js"></script>
   <style>
   /* ============================================================
    *  Inversions — every pair is a wallet stack of two cards. The halves are
    *  peers: a piece and its 45-degree twin, straight swapped for diagonal.
    *
-   *  ponytail: the card system below is duplicated from promotion.html.
+   *  ponytail: the card system below is duplicated from merges.html.
    *  Extract an assets/stacks.css when a third page wants it, or once both
-   *  pages stop moving — not while promotion.html is still in review.
+   *  pages stop moving — not while merges.html is still in review.
    *  Follows artefacts.html, the design pilot: it does NOT link
    *  assets/site.css and carries its own tokens, but shares
    *  assets/nav.{css,js} and assets/theme.js so the header and the
@@ -98,7 +98,7 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.07em}
   .hero p{margin:16px 0 0;max-width:50ch;font-size:16.5px;color:var(--text-soft)}
 
-  /* Same wall as promotion.html: wider than the --wrap column the hero and
+  /* Same wall as merges.html: wider than the --wrap column the hero and
      footer use, so the cards come out the same size on both pages. */
   /* No cap and a 10px gutter: the wall takes the whole window so the cards
      come out as large as the solve allows. Hero and footer keep the --wrap
@@ -288,7 +288,7 @@
   .dcard{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 /* the two seams carry the equation: a + between the inputs, an = before the
-   product. Same geometry and reveal as the Promotions arrow, but plain text so
+   product. Same geometry and reveal as the Merges arrow, but plain text so
    the two seams can differ and so the glyph inherits --lime per theme. */
 .dcard:not(:last-child)::after{
   position:absolute;left:calc(100% - 29px);top:42%;
@@ -496,7 +496,7 @@ const nm = id => LOOKUP[id] ? LOOKUP[id].name : id;
 // A pair often bridges two Families - Mage is the Mage line, Seer the Seer line -
 // so it sorts by the lower of the two, which is what holds each trio together.
 const STAGE_OF = {};
-PROMOTION_FAMILIES.forEach((c, ci) => c.ids.forEach((id, si) => STAGE_OF[id] = { ci, si }));
+MERGE_FAMILIES.forEach((c, ci) => c.ids.forEach((id, si) => STAGE_OF[id] = { ci, si }));
 const familyKey = v => {
   const a = STAGE_OF[v.lhs], b = STAGE_OF[v.rhs];
   const ci = Math.min(a ? a.ci : 99, b ? b.ci : 99);

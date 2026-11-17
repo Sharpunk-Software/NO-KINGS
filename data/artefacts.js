@@ -56,7 +56,7 @@
    game/scripts/artefact_hooks.gd's header.
    2026-08-29 (issue 42): Dark Market Light Bulb flipped to implemented: true
    — "Demoted" ruled currently-below-peak-rank (option b, clears on
-   re-promotion), backed by a new per-piece peak_ranked stamp; see
+   a new Rank Up), backed by a new per-piece peak_ranked stamp; see
    game/scripts/artefact_hooks.gd's header. The 3 Tactical-restricted random-
    buff granters (MK-Ultra Sugar Cube, Obedience-Flavored Tap Water, Sleeper
    Agent Pillow) were considered for widening to the full Piece Buff pool and

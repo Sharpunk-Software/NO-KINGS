@@ -12,15 +12,15 @@
   <script src="data/pieces-codex.js"></script>
   <script src="data/fusions.js"></script>
   <!-- Family order for the filter grid; no fusion data comes from here -->
-  <script src="data/promotions.js"></script>
+  <script src="data/families.js"></script>
   <style>
   /* ============================================================
    *  Fusions — every fusion is a wallet stack of three cards read as an
    *  equation: lhs + rhs = out.
    *
-   *  ponytail: the card system below is duplicated from promotion.html.
+   *  ponytail: the card system below is duplicated from merges.html.
    *  Extract an assets/stacks.css when a third page wants it, or once both
-   *  pages stop moving — not while promotion.html is still in review.
+   *  pages stop moving — not while merges.html is still in review.
    *  Follows artefacts.html, the design pilot: it does NOT link
    *  assets/site.css and carries its own tokens, but shares
    *  assets/nav.{css,js} and assets/theme.js so the header and the
@@ -98,7 +98,7 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.07em}
   .hero p{margin:16px 0 0;max-width:50ch;font-size:16.5px;color:var(--text-soft)}
 
-  /* Same wall as promotion.html: wider than the --wrap column the hero and
+  /* Same wall as merges.html: wider than the --wrap column the hero and
      footer use, so the cards come out the same size on both pages. */
   /* No cap and a 10px gutter: the wall takes the whole window so the cards
      come out as large as the solve allows. Hero and footer keep the --wrap
@@ -288,7 +288,7 @@
   .dcard{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 /* the two seams carry the equation: a + between the inputs, an = before the
-   product. Same geometry and reveal as the Promotions arrow, but plain text so
+   product. Same geometry and reveal as the Merges arrow, but plain text so
    the two seams can differ and so the glyph inherits --lime per theme. */
 .dcard:not(:last-child)::after{
   position:absolute;left:calc(100% - 29px);top:42%;
@@ -570,7 +570,7 @@ function markFx(fx, fan, what) {
 const PRESENT = new Set(ALL.flatMap(IDS));
 // Order drives the 3-row grid: each Family takes a column, base over
 // mid over end, then whatever belongs to no Family fills the columns after.
-const CHAIN_IDS = PROMOTION_FAMILIES.flatMap(c => c.ids).filter(id => !nm(id).startsWith('Void '));
+const CHAIN_IDS = MERGE_FAMILIES.flatMap(c => c.ids).filter(id => !nm(id).startsWith('Void '));
 const FILTER_IDS = [...CHAIN_IDS, ...PIECES_CODEX.map(p => p.id)
   .filter(id => !CHAIN_IDS.includes(id) && !nm(id).startsWith('Void '))
   .sort((a, b) => nm(a).localeCompare(nm(b)))];

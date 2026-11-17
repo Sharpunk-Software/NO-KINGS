@@ -2,7 +2,7 @@
 
 **An explosive Chess riot.** This is the published NO KINGS reference site: a filterable
 codex of the pieces, with movement diagrams, Betza notation and the relations between them
-(promotions, fusions, inversions), plus the Artefacts catalog.
+(merges, fusions, inversions), plus the Artefacts catalog.
 
 **▶ Live site: https://nokings.sharpunk.com/**
 
