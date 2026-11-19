@@ -38,9 +38,6 @@
    snapshot test (test_items.gd) compares var_to_str of the loaded catalog. */
 
 var ITEMS = [
-  { key: "blitz", name: "Blitz", tier: "Tactical", target: "tile", action_cost: 0,
-    fires: ["on_item_consume"],
-    description: "One of your pieces: its next move or capture this Turn is free, even if it already moved." },
   { key: "asset_recovery", name: "Asset Recovery", tier: "Tactical", target: "tile",
     fires: ["on_item_consume"],
     description: "Copy any piece on the board, ally or enemy, into your Stock." },
@@ -109,6 +106,9 @@ var PIECE_BUFFS = [
   { key: "multicapture", name: "Multicapture", tier: "Strategic", model: "dormant",
     fires: ["on_buff_consume", "on_capture", "on_score_change", "on_gold_change"],
     description: "This piece's next capture also takes one enemy beside the captured piece." },
+  { key: "blitz", name: "Blitz", tier: "Tactical", model: "dormant",
+    fires: ["on_buff_consume"],
+    description: "This piece's next move or capture costs no Action, even if it already moved this Turn." },
   { key: "taunt", name: "Taunt", tier: "Tactical", model: "dormant",
     fires: [],
     description: "Enemies that can capture this piece take it first." },
