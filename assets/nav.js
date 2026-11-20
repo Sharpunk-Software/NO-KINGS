@@ -29,6 +29,7 @@
     ['artefacts',    'artefacts.html',        'Artefacts'],
     ['buffs',        'buffs.html',            'Buffs'],
     ['encyclopedia', 'encyclopedia/index.html', 'Encyclopedia', 'gap'],
+    ['diagrams',     'diagrams/auth/',        'Diagrams'],
     ['betza',        'betza.html',            'Betza']
   ];
 
