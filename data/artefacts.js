@@ -357,7 +357,7 @@ var ARTEFACTS = [
     conspiracy: "The Men in Black", url: "https://en.wikipedia.org/wiki/Men_in_black",
     summary: "Since the 1950s, UFO witnesses have described identical dark-suited visitors who arrive first and advise silence. Government agents, aliens policing their own leaks — the card never has a real department on it." },
   { name: "Montauk Eggo Waffle", key: "montauk-eggo-waffle", rarity: "Uncommon", type: "Trigger", bonus: ["Special"], status: "KEEP", implemented: true,
-    effect: "After your first Capture each Turn: the capturer returns to where it started.",
+    effect: "After your first Capture each Wave: the capturer returns to where it started.",
     conspiracy: "The Montauk Project", url: "https://en.wikipedia.org/wiki/Montauk_Project",
     summary: "Camp Hero, Long Island: lore of time tunnels, psychic boys and a chair that turned thought into reality, spun from a decommissioned radar base. It directly inspired Stranger Things — the fiction of the fiction. Stranger Things was first pitched under the title 'Montauk'." },
   { name: "Moon Landing Slate", key: "moon-landing-slate", rarity: "Uncommon", type: "Trigger", bonus: ["Special"], status: "KEEP", implemented: true,

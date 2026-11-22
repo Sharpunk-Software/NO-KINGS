@@ -56,7 +56,7 @@ const KING_ABILITIES = [
   { key: "inflation", name: "Tariff on $ Gain", tier: "Mild", kind: "persistent",
     description: "Gold gains −10% (stacks)" },
   { key: "deploy_cost", name: "Tariff on Deploy", tier: "Moderate", kind: "action",
-    description: "Deploys: +60% of their base cost" },
+    description: "Deploys: pay 60% of the piece's value" },
   { key: "fuse_cost", name: "Tariff on Fuse", tier: "Moderate", kind: "action",
     description: "Merge costs $9" },
   { key: "diplomatic_visit", name: "Diplomatic Visit", tier: "Severe", kind: "oneoff",

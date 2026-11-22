@@ -88,7 +88,7 @@ const KITS = {
   },
   qinshizuzu: {
     power_name: "The Great Wall",
-    power_desc: "Deploys cost double this wave.",
+    power_desc: "Deploys cost $ this wave: half the piece's value.",
     power_key: "wall",
     ability_name: "The Terracotta Army",
     ability_desc: "3 more enemies arrive, copied from the wave's own pieces.",
