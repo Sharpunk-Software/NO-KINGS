@@ -14,7 +14,7 @@
      if omitted — the Actions it costs to USE the item itself; separate from
      whatever effect it grants on its target). target:
      "" (instant) · "tile" (pick one tile) · "pair" (pick a piece, then a
-     destination) · "multi" · "area"
+     destination) · "multi" (picks: exactly that many, when set) · "area"
 
    `fires` / `suppresses` (issue 94) — the PRODUCER half of the hook graph.
    `ArtefactHooks.REGISTRY` records what each Artefact LISTENS to; these record
@@ -74,9 +74,9 @@ var ITEMS = [
   { key: "drone_strike", name: "Drone Strike", tier: "Decisive", target: "area",
     fires: ["on_item_consume", "on_destroy", "on_piece_lost"],
     description: "Destroy every piece, ally and enemy, in a 3x3 area. Not the King." },
-  { key: "surprise_attack", name: "Surprise Attack", tier: "Decisive", target: "",
-    fires: ["on_item_consume"], suppresses: ["on_enemy_turn_start"],
-    description: "Take another turn right after this one. The enemy skips its turn." },
+  { key: "surprise_attack", name: "Surprise Attack", tier: "Decisive", target: "multi", picks: 2,
+    fires: ["on_item_consume", "on_buff_apply"],
+    description: "Give Counter Attack to 2 of your pieces: each one captures, for free, the first enemy that ends a move or lands in its range." },
   { key: "buff_box", name: "Buff Pack", tier: "Strategic", target: "tile",
     fires: ["on_item_consume", "on_buff_apply"],
     description: "Pick 1 of 3 random Piece Buffs, then apply it to any piece, ally or enemy." },
@@ -127,6 +127,9 @@ var PIECE_BUFFS = [
   { key: "reflect", name: "Reflect", tier: "Decisive", model: "dormant",
     fires: ["on_buff_consume", "on_piece_lost"], suppresses: ["on_capture"],
     description: "Stops the next capture attempt, then captures the attacker and takes its tile." },
+  { key: "counter_attack", name: "Counter Attack", tier: "Decisive", model: "dormant",
+    fires: ["on_buff_consume", "on_capture", "on_score_change", "on_gold_change", "on_piece_lost"],
+    description: "The first enemy that ends a move or lands where this piece could capture it is captured at once, for free. Not the King." },
   { key: "slow", name: "Slow", tier: "Tactical", model: "timed", turns: 1,
     // A DEBUFF on its own holder (ruled 2026-08-28) — a RANDOM artefact grant
     // must never hand a piece this by accident (see artefact_hooks.gd's
