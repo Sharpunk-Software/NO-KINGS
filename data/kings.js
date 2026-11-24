@@ -72,7 +72,7 @@ const KITS = {
   // ---- LAUREL (issue 92) --------------------------------------------------
   nebuchadnezzebub: {
     power_name: "The Babylonian Exile",
-    power_desc: "Pieces you capture this wave never reach your Captured Stock.",
+    power_desc: "Pieces you capture this wave never reach your Prison.",
     power_key: "exile",
     ability_name: "The Dream of the Statue",
     ability_desc: "Your most valuable piece crumbles to its base form.",
