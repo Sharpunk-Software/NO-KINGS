@@ -142,7 +142,8 @@ var PIECE_BUFFS = [
     description: "This piece moves and captures like a Pawn until the end of the next enemy turn." },
   { key: "aura", name: "Aura", tier: "Strategic", model: "timed", turns: 2,
     fires: [],
-    description: "For 2 player turns, adjacent allies score double on their captures." },
+    // Max 2026-11-25 (Army rework): no longer doubles Score; adjacent allies' rides pass through pieces.
+    description: "For 2 player turns, adjacent allies' sliding moves pass through pieces." },
   { key: "smog", name: "Smog", tier: "Strategic", model: "timed", turns: 2,
     fires: [],
     description: "For 2 player turns, adjacent enemies move and capture like a Pawn." },
