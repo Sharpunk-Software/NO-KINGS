@@ -76,7 +76,7 @@ var ITEMS = [
     description: "Destroy every piece, ally and enemy, in a 3x3 area. Not the King." },
   { key: "surprise_attack", name: "Surprise Attack", tier: "Decisive", target: "multi", picks: 2,
     fires: ["on_item_consume", "on_buff_apply"],
-    description: "Give Counter Attack to 2 of your pieces: each one captures, for free, the first enemy that ends a move or lands in its range." },
+    description: "Give Counter Attack to up to 2 of your pieces: each one captures, for free, the first enemy that ends a move or lands in its range." },
   { key: "buff_box", name: "Buff Pack", tier: "Strategic", target: "tile",
     fires: ["on_item_consume", "on_buff_apply"],
     description: "Pick 1 of 3 random Piece Buffs, then apply it to any piece, ally or enemy." },

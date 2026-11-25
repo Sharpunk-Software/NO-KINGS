@@ -507,7 +507,7 @@ var ARTEFACTS = [
     conspiracy: "Water fluoridation", url: "https://en.wikipedia.org/wiki/Water_fluoridation_controversy",
     summary: "Cold War America's homegrown panic: fluoride in the tap water as a communist plot to soften minds. Immortalized by Dr. Strangelove's General Ripper and his precious bodily fluids." },
   { name: "Snowden's Rubik's Cube", key: "snowden-s-rubik-s-cube", rarity: "Legendary", type: "Passive", bonus: ["Special"], status: "KEEP", implemented: true,
-    effect: "Copies the last other Artefact you bought.",
+    effect: "When gained: pick one of your Artefacts with a triggered effect. This copies it.",
     conspiracy: "PRISM", url: "https://en.wikipedia.org/wiki/PRISM_(surveillance_program)",
     summary: "Snowden walked the NSA's crown jewels out of a secure facility — by his own account, past the guards inside a Rubik's Cube. The slides inside proved the paranoids right, in the ugliest PowerPoint template ever made." },
   { name: "Templar Debit Card", key: "templar-debit-card", rarity: "Legendary", type: "Passive", bonus: ["Shop", "Special"], status: "KEEP", implemented: true,
