@@ -406,7 +406,7 @@ var ARTEFACTS = [
     conspiracy: "The 33rd degree", url: "https://en.wikipedia.org/wiki/Scottish_Rite",
     summary: "Freemasonry's Scottish Rite tops out at the honorary 33rd degree, and two centuries of lore insist that's where the real handshakes happen — each degree a door, the last one unmarked. The ring is how they know each other." },
   { name: "Agartha Welcome Mat", key: "agartha-welcome-mat", rarity: "Rare", type: "Trigger", bonus: ["Piece"], status: "KEEP", implemented: true,
-    effect: "On Wave clear: +1 random Army piece to your Stock.",
+    effect: "On Wave clear: +1 random Mob piece to your Stock.",
     conspiracy: "The Hollow Earth", url: "https://en.wikipedia.org/wiki/Hollow_Earth",
     summary: "Openings at the poles, civilizations within — Symmes petitioned Congress to fund the descent, and Agartha lore inherited the map. Admiral Byrd's polar flights were retold as the trip inside. Geology declined comment." },
   { name: "Alleged Weather Balloon", key: "alleged-weather-balloon", rarity: "Rare", type: "Trigger", bonus: ["Special"], status: "KEEP", implemented: true,
