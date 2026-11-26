@@ -333,7 +333,7 @@ var ARTEFACTS = [
     conspiracy: "The water-fuelled car", url: "https://en.wikipedia.org/wiki/Water-fuelled_car",
     summary: "Stanley Meyer said his cell ran cars on water; a court said fraud. When he died mid-lunch in 1998 crying 'they poisoned me', the suppressed-invention legend acquired its martyr." },
   { name: "Doomsday Autoclicker", key: "doomsday-autoclicker", rarity: "Uncommon", type: "Trigger", bonus: ["Special", "Piece"], status: "KEEP", implemented: true,
-    effect: "Once per Wave: when an enemy captures your piece, the capturer is removed too.",
+    effect: "Once per Wave: when an enemy captures your piece, the capturer is removed too (never the King).",
     conspiracy: "Dead Hand", url: "https://en.wikipedia.org/wiki/Dead_Hand",
     summary: "The Soviet doomsday system built to fire back even if everyone who could give the order was dead — sensors, silence, then launch. Former officers say Perimeter still runs. The button that presses itself." },
   { name: "Ecdysis Sheddings", key: "ecdysis-sheddings", rarity: "Uncommon", type: "Trigger", bonus: ["Buff"], status: "KEEP", implemented: true,
